@@ -28,7 +28,6 @@ public class CategoriaDaoImpl implements ICategoriaDAO{
     final String DELETE = "DELETE FROM categoria WHERE idCategoria=?";
     final String OBTENERID = "SELECT idCategoria FROM categoria WHERE categoria=? AND subcategoria=? AND descripcion=?";
     final String OBTENERTODOS = "SELECT idCategoria, categoria, subcategoria, descripcion FROM categoria";
-  
     
     Conexion cc = new Conexion();
     Connection conn = cc.obtenerConexion();
@@ -209,4 +208,3 @@ public class CategoriaDaoImpl implements ICategoriaDAO{
         System.out.println(id + "///");
     }*/
 }
-

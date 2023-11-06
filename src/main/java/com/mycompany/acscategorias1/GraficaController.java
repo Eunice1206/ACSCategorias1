@@ -27,6 +27,7 @@ public class GraficaController implements Initializable {
     private CategoryAxis categoria;
     @FXML
     private BarChart<?, ?> categorias;
+    
 
     /**
      * Initializes the controller class.
@@ -34,13 +35,16 @@ public class GraficaController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         XYChart.Series set1 = new XYChart.Series<>();
-       
+
         set1.setName("2023");
         set1.getData().add(new XYChart.Data("Medicamento", 500));
         set1.getData().add(new XYChart.Data("Dermatologicos", 200));
-        
-        
+
+
         categorias.getData().addAll(set1);
-    }    
-    
-}
+        
+        
+        
+        }
+
+    }

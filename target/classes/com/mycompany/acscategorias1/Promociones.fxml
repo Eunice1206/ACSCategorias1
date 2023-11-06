@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1323.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.acscategorias1.PromocionesController">
+   <children>
+      <Label layoutX="577.0" layoutY="34.0" text="PROMOCIONES">
+         <font>
+            <Font size="33.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tablaPromociones" layoutX="256.0" layoutY="121.0" onMouseClicked="#seleccionar" prefHeight="249.0" prefWidth="873.0">
+        <columns>
+          <TableColumn fx:id="colDescripProm" prefWidth="279.0" text="Descripción" />
+          <TableColumn fx:id="colProm" prefWidth="293.0" text="Promoción" />
+            <TableColumn fx:id="colID" minWidth="0.0" prefWidth="0.0" text="ID" visible="false" />
+            <TableColumn fx:id="colVigencia" prefWidth="297.0" text="Vigencia" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="310.0" layoutY="402.0" prefHeight="227.0" prefWidth="764.0" style="-fx-background-color: #D2F1FD; -fx-border-color: #5DD3FF; -fx-border-width: 4px; -fx-border-radius: 10px;">
+         <children>
+            <Label layoutX="263.0" layoutY="14.0" text="Nueva promoción">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="txtPromocion" layoutX="433.0" layoutY="55.0" prefHeight="40.0" prefWidth="287.0" />
+            <Button fx:id="btnAgregarProm" layoutX="433.0" layoutY="161.0" mnemonicParsing="false" onAction="#agregarPromocion" prefHeight="40.0" prefWidth="120.0" text="Agregar promocion" />
+            <Button fx:id="btnElimProm" layoutX="599.0" layoutY="161.0" mnemonicParsing="false" onAction="#eliminarPromocion" prefHeight="40.0" prefWidth="120.0" text="Eliminar promocion" />
+            <TextArea fx:id="txtDescripcion" layoutX="14.0" layoutY="61.0" prefHeight="150.0" prefWidth="333.0" style="-fx-border-radius: 15px;" />
+            <Text layoutX="439.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vigencia">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtVigencia" layoutX="439.0" layoutY="124.0" prefHeight="25.0" prefWidth="287.0" />
+            <Text layoutX="439.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promoción">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Text layoutX="26.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descripción de la nueva promoción">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

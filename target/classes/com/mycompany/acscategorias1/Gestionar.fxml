@@ -5,8 +5,6 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -33,7 +31,7 @@
             <TextField fx:id="txtSubcategoria" layoutX="37.0" layoutY="123.0" prefHeight="25.0" prefWidth="182.0" promptText="SUBCATEGORIA" style="-fx-background-radius: 10px;" />
             <TextField fx:id="txtDescripcion" layoutX="36.0" layoutY="195.0" prefHeight="25.0" prefWidth="182.0" promptText="DESCRIPCION" style="-fx-background-radius: 10px;" />
             <TextField fx:id="txtID" layoutX="18.0" layoutY="182.0" visible="false" />
-            <Button fx:id="btLimpiar" layoutX="57.0" layoutY="233.0" mnemonicParsing="false" onAction="#limpiarCampos" prefHeight="43.0" prefWidth="170.0" text="Limpiar " />
+            <Button fx:id="btGuardar" layoutX="57.0" layoutY="234.0" mnemonicParsing="false" onAction="#agregarCategoria" prefHeight="43.0" prefWidth="170.0" text="Agregar Categoria" textAlignment="CENTER" />
          </children>
       </AnchorPane>
       <TableView fx:id="tablaCategoria" layoutX="18.0" layoutY="124.0" onMouseClicked="#seleccionar" prefHeight="507.0" prefWidth="1023.0" style="-fx-background-color: #FFFFFF;">
@@ -46,19 +44,14 @@
       </TableView>
       <AnchorPane layoutX="1066.0" layoutY="352.0" prefHeight="278.0" prefWidth="284.0" style="-fx-background-color: #D2F1FD; -fx-border-color: #5DD3FF; -fx-border-width: 4px; -fx-border-radius: 10px;">
          <children>
-            <Button fx:id="btGuardar" layoutX="57.0" layoutY="25.0" mnemonicParsing="false" onAction="#agregarCategoria" prefHeight="43.0" prefWidth="170.0" text="Agregar Categoria" textAlignment="CENTER" />
-            <Button fx:id="btModificar" layoutX="57.0" layoutY="86.0" mnemonicParsing="false" onAction="#modificarCategoria" prefHeight="43.0" prefWidth="170.0" text="Modificar Categoria" />
-            <Button fx:id="btEliminar" layoutX="57.0" layoutY="147.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="43.0" prefWidth="170.0" text="Eliminar Categoria" />
+            <Button fx:id="btModificar" layoutX="57.0" layoutY="26.0" mnemonicParsing="false" onAction="#modificarCategoria" prefHeight="43.0" prefWidth="170.0" text="Modificar Categoria" />
+            <Button fx:id="btEliminar" layoutX="57.0" layoutY="89.0" mnemonicParsing="false" onAction="#eliminar" prefHeight="43.0" prefWidth="170.0" text="Eliminar Categoria" />
             <Button fx:id="btCancelar" layoutX="57.0" layoutY="207.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="43.0" prefWidth="170.0" text="Cancelar" />
+            <Button fx:id="btLimpiar" layoutX="57.0" layoutY="147.0" mnemonicParsing="false" onAction="#limpiarCampos" prefHeight="43.0" prefWidth="170.0" text="Limpiar  Campos" />
          </children>
       </AnchorPane>
-      <Button layoutX="554.0" layoutY="38.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" text="Buscar" />
-      <TextField layoutX="35.0" layoutY="38.0" prefHeight="34.0" prefWidth="504.0" />
-      <Button fx:id="btGrafica" layoutX="842.0" layoutY="72.0" mnemonicParsing="false" onAction="#mostrarGrafica" prefHeight="34.0" prefWidth="170.0" text="Gráfica" />
-      <ImageView fitHeight="25.0" fitWidth="31.0" layoutX="766.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../java/imagenes/agregar.png" />
-         </image>
-      </ImageView>
+      <Button layoutX="588.0" layoutY="72.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="133.0" text="Buscar" />
+      <TextField layoutX="74.0" layoutY="72.0" prefHeight="34.0" prefWidth="504.0" />
+      <Button fx:id="btGrafica" layoutX="798.0" layoutY="72.0" mnemonicParsing="false" onAction="#mostrarGrafica" prefHeight="34.0" prefWidth="170.0" text="Promociones" />
    </children>
 </AnchorPane>

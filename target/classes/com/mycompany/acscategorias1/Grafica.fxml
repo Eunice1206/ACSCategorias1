@@ -5,8 +5,7 @@
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1035.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="com.mycompany.acscategorias1.GraficaController">
+<AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.acscategorias1.GraficaController">
    <children>
       <BarChart fx:id="categorias" layoutX="-6.0" prefHeight="665.0" prefWidth="1041.0" stylesheets="@EstiloGrafica.css" title="Categorias y Productos">
         <xAxis>
