@@ -4,6 +4,8 @@
  */
 package Modelo;
 
+import DAO.CategoriaDaoImpl;
+import DAO.ICategoriaDAO;
 import java.util.Objects;
 
 /**
@@ -95,4 +97,11 @@ public class Categoria {
         }
         return Objects.equals(this.descripcion, other.descripcion);
     }
+    
+    /*public Categoria buscarCategoriaNombre(String nombreCliente) {
+        ICategoriaDAO dao = new CategoriaDaoImpl();
+        Categoria categoriaEncontrada = new Categoria();
+        categoriaEncontrada = dao.buscarCategoriaNombre(nombreCliente);
+        return categoriaEncontrada;
+    }*/
 }

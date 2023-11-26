@@ -10,24 +10,30 @@ package Modelo;
  */
 public class Promocion {
     private int idPromocion;
-    private String descripcionPromocion;
+    private String subcategoria;
+    private String tipo;
     private String promocion;
-    private String vigencia;
+    private int cantidadMinima;
+    private String fechaInicio;
+    private String fechaFin;
 
-    public Promocion(String descripcionPromocion, String promocion, String vigencia) {
-        this.descripcionPromocion = descripcionPromocion;
-        this.promocion = promocion;
-        this.vigencia = vigencia;
-    }
-
-    public Promocion(int idPromocion, String descripcionPromocion, String promocion, String vigencia) {
+    public Promocion(int idPromocion, String subcategoria, String tipo, String promocion, int cantidadMinima, String fechaInicio, String fechaFin) {
         this.idPromocion = idPromocion;
-        this.descripcionPromocion = descripcionPromocion;
+        this.subcategoria = subcategoria;
+        this.tipo = tipo;
         this.promocion = promocion;
-        this.vigencia = vigencia;
+        this.cantidadMinima = cantidadMinima;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
-    public Promocion() {
+    public Promocion(String subcategoria, String tipo, String promocion, int cantidadMinima, String fechaInicio, String fechaFin) {
+        this.subcategoria = subcategoria;
+        this.tipo = tipo;
+        this.promocion = promocion;
+        this.cantidadMinima = cantidadMinima;
+        this.fechaInicio = fechaInicio;
+        this.fechaFin = fechaFin;
     }
 
     public int getIdPromocion() {
@@ -38,12 +44,20 @@ public class Promocion {
         this.idPromocion = idPromocion;
     }
 
-    public String getDescripcionPromocion() {
-        return descripcionPromocion;
+    public String getSubcategoria() {
+        return subcategoria;
     }
 
-    public void setDescripcionPromocion(String descripcionPromocion) {
-        this.descripcionPromocion = descripcionPromocion;
+    public void setSubcategoria(String subcategoria) {
+        this.subcategoria = subcategoria;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
     public String getPromocion() {
@@ -54,17 +68,30 @@ public class Promocion {
         this.promocion = promocion;
     }
 
-    public String getVigencia() {
-        return vigencia;
+    public int getCantidadMinima() {
+        return cantidadMinima;
     }
 
-    public void setVigencia(String vigencia) {
-        this.vigencia = vigencia;
+    public void setCantidadMinima(int cantidadMinima) {
+        this.cantidadMinima = cantidadMinima;
     }
-    
-    
 
-    
+    public String getFechaInicio() {
+        return fechaInicio;
+    }
+
+    public void setFechaInicio(String fechaInicio) {
+        this.fechaInicio = fechaInicio;
+    }
+
+    public String getFechaFin() {
+        return fechaFin;
+    }
+
+    public void setFechaFin(String fechaFin) {
+        this.fechaFin = fechaFin;
+    }
+
     
     
     

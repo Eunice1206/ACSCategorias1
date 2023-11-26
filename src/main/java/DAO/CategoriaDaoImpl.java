@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -146,7 +147,7 @@ public class CategoriaDaoImpl implements ICategoriaDAO{
         return categorias;
     }
     
-     private Categoria convertir(ResultSet rs) throws SQLException{
+    private Categoria convertir(ResultSet rs) throws SQLException{
         int id = rs.getInt("idCategoria");//modificacion
         String categoria = rs.getString("categoria");
         String subcategoria = rs.getString("subcategoria");
@@ -207,4 +208,37 @@ public class CategoriaDaoImpl implements ICategoriaDAO{
         id = aux.ObtenerId(c);
         System.out.println(id + "///");
     }*/
+
+    @Override
+    public List<Categoria> buscarCategoriaNombre(String nombre) {
+        Conexion conexion = new Conexion();
+        List<Categoria> categorias = new ArrayList<>();
+      
+        String sql = "SELECT * FROM categoria WHERE categoria like '%"+nombre+"%'"; //collate Latin1_General_CI_AI
+        
+        try {
+            Connection conn = conexion.obtenerConexion();
+            Statement sentencia = conn.createStatement();
+            ResultSet resultado = sentencia.executeQuery(sql);
+            
+            
+            while (resultado.next()) {
+               Categoria categoria = new Categoria();
+               categoria.setId(resultado.getInt("idCategoria"));
+               categoria.setCategoria(resultado.getString("categoria"));
+               categoria.setSubcategoria(resultado.getString("subcategoria"));
+               categoria.setDescripcion(resultado.getString("descripcion"));
+               categorias.add(categoria);
+                }
+                    conn.close(); 
+            
+            } catch (SQLException ex) {
+                Logger.getLogger(CategoriaDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            return categorias;
+    }
+
+   
+
+    
 }

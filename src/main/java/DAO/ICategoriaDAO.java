@@ -5,6 +5,7 @@
 package DAO;
 
 import Modelo.Categoria;
+import java.util.List;
 
 /**
  *
@@ -12,4 +13,5 @@ import Modelo.Categoria;
  */
 public interface ICategoriaDAO extends DAO<Categoria, Integer>{
     int ObtenerId(Categoria categoria);
+    public List<Categoria> buscarCategoriaNombre(String nombre);
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="640.0" prefWidth="1032.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="431.0" layoutY="59.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" DESCUENTOS">
+         <font>
+            <Font name="System Italic" size="33.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtBuscarDescuentos" layoutX="27.0" layoutY="85.0" prefHeight="25.0" prefWidth="509.0" />
+      <Button fx:id="btnBuscarDescuentos" layoutX="552.0" layoutY="85.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="79.0" text="Buscar" />
+      <TableView fx:id="tablaDescuentos" layoutX="20.0" layoutY="134.0" prefHeight="252.0" prefWidth="996.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="75.0" text="ID" />
+          <TableColumn fx:id="colNombre" prefWidth="217.0" text="Nombre" />
+            <TableColumn fx:id="colPrecio" prefWidth="123.0" text="Precio " />
+            <TableColumn fx:id="colDescuento" prefWidth="113.0" text="Descuento" />
+            <TableColumn fx:id="colPrecioDescuento" prefWidth="161.0" text="Precio con descuento" />
+            <TableColumn fx:id="colFechaIni" prefWidth="150.0" text="Fecha inicio" />
+            <TableColumn fx:id="colFechaFin" prefWidth="156.0" text="Fecha fin" />
+        </columns>
+      </TableView>
+      <AnchorPane layoutX="74.0" layoutY="401.0" prefHeight="213.0" prefWidth="885.0" style="-fx-background-color: #D2F1FD; -fx-border-radius: 10px; -fx-border-color: #5DD3FF; -fx-border-width: 4px;">
+         <children>
+            <DatePicker fx:id="fechaInicio" layoutX="14.0" layoutY="98.0" />
+            <Text layoutX="31.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="VIGENCIA">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Text>
+            <Text layoutX="16.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <Text layoutX="233.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+            <DatePicker fx:id="fechaFin" layoutX="226.0" layoutY="98.0" />
+            <Separator layoutX="415.0" layoutY="10.0" orientation="VERTICAL" prefHeight="187.0" prefWidth="1.0" style="-fx-background-color: #41F2A4;" />
+            <TextField fx:id="txtNombreProducto" layoutX="519.0" layoutY="45.0" prefHeight="25.0" prefWidth="261.0" />
+            <TextField fx:id="txtPrecioProducto" layoutX="519.0" layoutY="98.0" prefHeight="25.0" prefWidth="166.0" />
+            <TextField fx:id="txtid" layoutX="429.0" layoutY="19.0" prefHeight="17.0" prefWidth="70.0" visible="false" />
+            <TextField fx:id="txtDescuento" layoutX="519.0" layoutY="152.0" prefHeight="25.0" prefWidth="166.0" />
+            <Text layoutX="445.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="459.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Precio">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="429.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Descuento">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Button fx:id="btnAgregarDescuento" layoutX="734.0" layoutY="97.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Agregar Descuento" />
+            <Button fx:id="btnEliminarDescuento" layoutX="734.0" layoutY="151.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="137.0" text="Eliminar Descuento" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

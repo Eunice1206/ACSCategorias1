@@ -6,6 +6,7 @@ package com.mycompany.acscategorias1;
 
 import ConexionBD.Conexion;
 import DAO.CategoriaDaoImpl;
+import DAO.ICategoriaDAO;
 import Excepciones.DAOException;
 import Modelo.Categoria;
 import Modelo.CrearAlerta;
@@ -24,6 +25,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -80,6 +82,13 @@ public class GestionarController implements Initializable {
     public List<Categoria> categ;
     @FXML
     private Button btGrafica;
+    @FXML
+    private Button btnBuscarCategoria;
+    @FXML
+    private TextField txtBuscar;
+    
+    List<Categoria> categoriasEncontradas;
+    private boolean filaSeleccionada = false;
     
    
 
@@ -88,6 +97,16 @@ public class GestionarController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            init();
+        } catch (DAOException ex) {
+            Logger.getLogger(GestionarController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        Scene scene = tablaCategoria.getScene();
+
+        // Agregar un evento de clic a la escena para deseleccionar la fila de la tabla
+      
         tablaCategoria.setRowFactory(tv -> {
             TableRow<Categoria> row = new TableRow<>();
             row.selectedProperty().addListener((obs, wasSelected, isNowSelected) -> {
@@ -99,15 +118,6 @@ public class GestionarController implements Initializable {
             });
             return row;
         });
-    
-    
-        /*try {
-            init ();
-        } catch (DAOException ex) {
-            Logger.getLogger(GestionarController.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-        
-        //Asociar las columnas con los atributos del modelo
         
         this.colID.setCellValueFactory(new PropertyValueFactory("id"));
         this.colCategoria.setCellValueFactory(new PropertyValueFactory("categoria"));
@@ -154,6 +164,9 @@ public class GestionarController implements Initializable {
                     categorias.add(new Categoria(id, txtCategoria.getText(),txtSubcategoria.getText(),txtDescripcion.getText()));
                     this.tablaCategoria.setItems(categorias);
                     
+                    limpiarCamposs();
+                    init();
+                    
                     CrearAlerta alerta3 = new CrearAlerta();
                     alerta3.Alerta("INFO", "CATEGORIA AÑADIDA", "LA CATEGORIA SE AÑADIO CORRECTAMENTE");
                 }else{
@@ -170,6 +183,7 @@ public class GestionarController implements Initializable {
     @FXML
     private void seleccionar(MouseEvent event) {
         Categoria categoria1 = this.tablaCategoria.getSelectionModel().getSelectedItem();
+        
         
         if(categoria1 != null){
             this.txtID.setText(String.valueOf(categoria1.getId()));
@@ -234,6 +248,7 @@ public class GestionarController implements Initializable {
             categoria1.setDescripcion(aux.getDescripcion());
             
             this.tablaCategoria.refresh();
+            limpiarCamposs();
             
             CrearAlerta alerta3 = new CrearAlerta();
             alerta3.Alerta("INFO", "CATEGORIA MODIFICADA", "LA CATEGORIA SE MODIFICÓ CORRECTAMENTE");
@@ -260,10 +275,7 @@ public class GestionarController implements Initializable {
      */
     @FXML
     private void limpiarCampos(ActionEvent event) {
-        txtID.clear();
-        txtCategoria.clear();
-        txtSubcategoria.clear();
-        txtDescripcion.clear();
+        limpiarCamposs();
     }
     
     /**
@@ -287,28 +299,73 @@ public class GestionarController implements Initializable {
         return resultado;
     }
     
-    void init() throws DAOException{
-        
-            
+   void init() throws DAOException {
+    try {
+        // Llama a tu DAO para recuperar todas las categorías desde la base de datos
         CategoriaDaoImpl dao = new CategoriaDaoImpl();
-        categ = new ArrayList<>();
         categ = dao.obtenerTodos();
-        tablaCategoria.refresh();
-            colID.setCellValueFactory(new PropertyValueFactory("id"));
-            colCategoria.setCellValueFactory(new PropertyValueFactory("categoria"));
-            colSubcategoria.setCellValueFactory(new PropertyValueFactory("subcategoria"));
-            colDescripcion.setCellValueFactory(new PropertyValueFactory("descripcion"));
-            tablaCategoria.setItems(categorias);
-    }
 
-    @FXML
-    private void mostrarGrafica(ActionEvent event) throws IOException {
+        // Crea una ObservableList para las categorías
+        ObservableList<Categoria> categorias = FXCollections.observableArrayList(categ);
+
+        // Configura las columnas de la tabla
+        colID.setCellValueFactory(new PropertyValueFactory("id"));
+        colCategoria.setCellValueFactory(new PropertyValueFactory("categoria"));
+        colSubcategoria.setCellValueFactory(new PropertyValueFactory("subcategoria"));
+        colDescripcion.setCellValueFactory(new PropertyValueFactory("descripcion"));
+
+        // Asigna la ObservableList a la tabla
+        tablaCategoria.setItems(categorias);
+    } catch (DAOException e) {
+        // Maneja las excepciones si ocurren al obtener las categorías de la base de datos
+        e.printStackTrace();
+    }
+}
+
+
+      @FXML
+    private void IrVentanaDescuentos(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        Parent root = FXMLLoader.load(getClass().getResource("Promociones.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("OpcionesPromociones.fxml"));
 
         Scene scene = new Scene(root);
 
         stage.setScene(scene);
         stage.show();
     }
+
+
+    @FXML
+    private void buscarCategoria(ActionEvent event) throws DAOException {
+        
+        String nombreCategoria = txtBuscar.getText();
+        ICategoriaDAO dao = new CategoriaDaoImpl();
+        categoriasEncontradas = dao.buscarCategoriaNombre(nombreCategoria);
+
+        // Limpiar la lista de categorías antes de agregar los resultados
+        this.categorias.clear();
+
+        if (!categoriasEncontradas.isEmpty()) {
+            this.categorias.addAll(categoriasEncontradas);
+            limpiarCamposs();
+         } else {
+            CrearAlerta alerta9 = new CrearAlerta();
+            alerta9.Alerta("INFO", "CATEGORIA NO ENCONTRADA", "No existe ninguna categoria con ese nombre");
+            
+
+            
+        }
+        
+        System.out.println(categoriasEncontradas);
+        this.tablaCategoria.setItems(categorias);
+    }
+    
+    private void limpiarCamposs() {
+        txtID.clear();
+        txtCategoria.clear();
+        txtSubcategoria.clear();
+        txtDescripcion.clear();
+    }
+  
+   
 }

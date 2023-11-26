@@ -37,8 +37,11 @@ public class GraficaController implements Initializable {
         XYChart.Series set1 = new XYChart.Series<>();
 
         set1.setName("2023");
-        set1.getData().add(new XYChart.Data("Medicamento", 500));
-        set1.getData().add(new XYChart.Data("Dermatologicos", 200));
+        set1.getData().add(new XYChart.Data("Just Bio H Biotina Gomitas", 35));
+        set1.getData().add(new XYChart.Data("Candiphen V Dual 3 Días", 30));
+        set1.getData().add(new XYChart.Data("Evenflo Portable", 23));
+        set1.getData().add(new XYChart.Data("Clarityne D Alivio de Alergias", 27));
+        
 
 
         categorias.getData().addAll(set1);

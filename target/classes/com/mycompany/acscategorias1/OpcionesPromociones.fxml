@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #DAF3EC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.acscategorias1.OpcionesPromocionesController">
+   <children>
+      <Text layoutX="128.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promociones y Descuentos">
+         <font>
+            <Font name="Colonna MT" size="31.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnirDescuentos" layoutX="141.0" layoutY="151.0" mnemonicParsing="false" onAction="#irDescuentos" prefHeight="39.0" prefWidth="83.0" style="-fx-border-color: #00ABC9; -fx-border-width: 3px;" text="Producto">
+         <font>
+            <Font name="Tempus Sans ITC" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnIrPromocionesCateg" layoutX="334.0" layoutY="151.0" mnemonicParsing="false" onAction="#irPromociones" prefHeight="39.0" prefWidth="83.0" style="-fx-border-color: #00ABC9; -fx-border-width: 3px;" text="Categoria">
+         <font>
+            <Font name="Tempus Sans ITC" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnProductosMenosVendidos" layoutX="183.0" layoutY="274.0" mnemonicParsing="false" onAction="#irProductosMenosVendidos" prefHeight="39.0" prefWidth="200.0" style="-fx-border-color: #00ABC9; -fx-border-width: 3px;" text="Productos menos vendidos">
+         <font>
+            <Font name="Tempus Sans ITC" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnRegresarCategoria" layoutY="352.0" mnemonicParsing="false" onAction="#regresarCategoria" prefHeight="48.0" prefWidth="104.0" text="Regresar">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="19.0" fitWidth="17.0" layoutY="368.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/regresar1.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

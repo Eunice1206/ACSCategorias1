@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="600.0" style="-fx-background-color: #DAF3EC;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.acscategorias1.PromocionAlimentosController">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="830.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/FONDO.jpg" />
+         </image>
+      </ImageView>
+      <Text layoutX="70.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="CATEGORIA: ALIMENTOS Y BEBIDAS">
+         <font>
+            <Font name="Colonna MT" size="24.0" />
+         </font>
+      </Text>
+      <Text layoutX="218.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nueva Promoción">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cBoxSubAlimentos" layoutX="14.0" layoutY="170.0" prefHeight="25.0" prefWidth="246.0" promptText="Seleccione" />
+      <Text layoutX="13.0" layoutY="155.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subcategoria">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="227.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tipo">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtTipoAlimentos" layoutX="14.0" layoutY="244.0" prefHeight="25.0" prefWidth="246.0" promptText="Tipo" />
+      <Text layoutX="15.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Promoción">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <ComboBox fx:id="cBoxPromocion" layoutX="15.0" layoutY="319.0" prefWidth="150.0" promptText="Seleccione" />
+      <Text layoutX="15.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cantidad mínima">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCantidadMinima" layoutX="15.0" layoutY="404.0" />
+      <DatePicker fx:id="dateInicio" layoutX="344.0" layoutY="210.0" promptText="Inicio" />
+      <DatePicker fx:id="dateFin" layoutX="344.0" layoutY="319.0" promptText="Fin" />
+      <Text layoutX="345.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Inicio promoción">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="345.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fin promoción">
+         <font>
+            <Font name="Courier New" size="18.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="69.0" fitWidth="97.0" layoutX="478.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imagenes/bebidas.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnCancelar" layoutX="328.0" layoutY="509.0" mnemonicParsing="false" onAction="#cancelar" prefHeight="42.0" prefWidth="174.0" text="Cancelar" />
+      <Button fx:id="btnAgregar" layoutX="78.0" layoutY="509.0" mnemonicParsing="false" onAction="#agregarPromocion" prefHeight="42.0" prefWidth="173.0" text="Agregar Promoción" />
+      <Separator layoutX="293.0" layoutY="97.0" orientation="VERTICAL" prefHeight="368.0" prefWidth="0.0" style="-fx-background-color: #00ABC9;" />
+   </children>
+</AnchorPane>

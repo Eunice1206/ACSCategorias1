@@ -7,12 +7,12 @@
 
 <AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1035.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.acscategorias1.GraficaController">
    <children>
-      <BarChart fx:id="categorias" layoutX="-6.0" prefHeight="665.0" prefWidth="1041.0" stylesheets="@EstiloGrafica.css" title="Categorias y Productos">
+      <BarChart fx:id="categorias" layoutX="-6.0" prefHeight="665.0" prefWidth="1041.0" stylesheets="@EstiloGrafica.css" title="Productos con menor venta">
         <xAxis>
-          <CategoryAxis fx:id="categoria" label="Categorias" side="BOTTOM" />
+          <CategoryAxis fx:id="categoria" label="Productos" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis fx:id="producto" label="Productos" side="LEFT" />
+          <NumberAxis fx:id="producto" label="Ventas" side="LEFT" />
         </yAxis>
       </BarChart>
    </children>
